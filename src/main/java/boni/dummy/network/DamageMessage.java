@@ -55,7 +55,7 @@ public class DamageMessage implements IMessage {
           if(entity != null && entity instanceof EntityDummy) {
             EntityDummy dummy = (EntityDummy) entity;
             dummy.shake = message.shakeAmount;
-            dummy.setCustomNameTag(String.valueOf(message.damage / 2f));
+            dummy.setCustomNameTag(String.valueOf(message.damage));
           }
           if(message.nrID > 0) {
             entity = Minecraft.getMinecraft().world.getEntityByID(message.nrID);

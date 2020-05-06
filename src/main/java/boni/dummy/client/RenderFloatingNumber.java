@@ -56,7 +56,7 @@ public class RenderFloatingNumber extends Render<EntityFloatingNumber> {
     GL11.glRotatef(-this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
 
     // draw it
-    String s = df.format(entity.damage / 2f);
+    String s = df.format(entity.damage);
     if(dps) {
       s = "DPS: " + s;
     }
