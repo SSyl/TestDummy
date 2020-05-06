@@ -14,14 +14,14 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.12-1.14"
+version = "1.12-1.14.1"
 group= "boni" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "MmmMmmMmmMmm"
 
 minecraft {
-    version = "1.12.2-14.23.0.2512"
+    version = "1.12.2-14.23.5.2847"
     runDir = "run"
-    mappings = "snapshot_20171010"
+    mappings = "stable_39"
 }
 
 dependencies {

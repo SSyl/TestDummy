@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 public class ItemDummy extends Item {
 
   public ItemDummy() {
-    this.setUnlocalizedName("dummy");
+    this.setTranslationKey("dummy");
     this.setRegistryName("dummy");
     this.setCreativeTab(CreativeTabs.COMBAT);
   }
