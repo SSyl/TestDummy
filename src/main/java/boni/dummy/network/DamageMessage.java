@@ -7,6 +7,8 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
+import java.text.DecimalFormat;
+
 import boni.dummy.EntityDummy;
 import boni.dummy.EntityFloatingNumber;
 import io.netty.buffer.ByteBuf;
@@ -46,6 +48,8 @@ public class DamageMessage implements IMessage {
 
   public static class MessageHandlerClient implements IMessageHandler<DamageMessage, IMessage> {
 
+    private static DecimalFormat df = new DecimalFormat("#.##");
+
     @Override
     public DamageMessage onMessage(final DamageMessage message, MessageContext ctx) {
       FMLCommonHandler.instance().getWorldThread(ctx.netHandler).addScheduledTask(new Runnable() {
@@ -55,7 +59,7 @@ public class DamageMessage implements IMessage {
           if(entity != null && entity instanceof EntityDummy) {
             EntityDummy dummy = (EntityDummy) entity;
             dummy.shake = message.shakeAmount;
-            dummy.setCustomNameTag(String.valueOf(message.damage));
+            dummy.setCustomNameTag(String.valueOf(df.format(message.damage)));
           }
           if(message.nrID > 0) {
             entity = Minecraft.getMinecraft().world.getEntityByID(message.nrID);
